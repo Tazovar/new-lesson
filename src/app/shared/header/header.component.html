@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <button mat-fab extended routerLink="/"> 
+        <mat-icon >home</mat-icon>
+    </button>
+
+    <div class="container">
+        <ng-container *ngIf="cardsInBasketCount > 0;else defaultBasket">
+            <button mat-icon-button [matBadge]="cardsInBasketCount" matBadgeColor="warn" [matMenuTriggerFor]="menu">
+                <mat-icon >add_shopping_cart</mat-icon>
+            </button>
+            </ng-container>
+
+        <ng-template #defaultBasket>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+        </ng-template>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="showBasket()">show basket</button>
+          </mat-menu>    
+    </div>
+
+  </mat-toolbar>

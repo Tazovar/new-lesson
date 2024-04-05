@@ -1,0 +1,13 @@
+<div class="card_container">
+    <ng-container *ngIf="productsData$ | async as products;else loading">
+    <ng-container *ngFor="let item of products">
+    <app-card [card]="item"></app-card>
+    </ng-container>
+    </ng-container>
+</div>
+
+
+
+<ng-template #loading>
+<h2 style="text-align: center;">loading...</h2>
+</ng-template>

@@ -1,0 +1,17 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title>
+            {{card.title}}
+        </mat-card-title>
+
+        </mat-card-header>
+    
+        <mat-card-content>
+                            <img width="200" [src]="card.image" mat-card-image>
+          <button mat-raised-button [routerLink]="['/details',card.id]">show more</button>
+          <button mat-raised-button (click)="openModal()">show only price</button>
+          <button mat-raised-button (click)="addCard()">add card</button>
+        </mat-card-content>
+    </mat-card>
+</div>
