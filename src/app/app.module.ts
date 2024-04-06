@@ -2,46 +2,47 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './views/pages/main/main.component';
-import { CardDetailsComponent } from './views/pages/card-details/card-details.component';
-import { BasketComponent } from './views/pages/basket/basket.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { CardComponent } from './shared/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon'
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-
 import { HttpClientModule } from '@angular/common/http';
-import { TestModalComponent } from './test-modal/test-modal.component'
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MainComponent } from './components/main/main.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { CardComponent } from './components/card/card.component';
+import { BasketComponent } from './components/basket/basket.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import { FilterInputComponent } from './components/filter-input/filter-input.component';
+import {MatInputModule} from '@angular/material/input';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe'
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    CardDetailsComponent,
-    BasketComponent,
     HeaderComponent,
+    MainComponent,
+    DetailComponent,
     CardComponent,
-    TestModalComponent
+    BasketComponent,
+    FilterInputComponent,
+    FilterPipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
     HttpClientModule,
-    MatDialogModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatInputModule,
     MatBadgeModule,
-    MatCardModule,
+    MatButtonModule,
     MatTableModule,
     MatMenuModule,
-    MatToolbarModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

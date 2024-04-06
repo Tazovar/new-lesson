@@ -1,0 +1,31 @@
+.cards_container{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center_container{
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.title{
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 20px 0px;
+}
+.filter_input_container{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 20px;
+}

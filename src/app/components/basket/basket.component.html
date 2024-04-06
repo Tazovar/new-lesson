@@ -1,44 +1,41 @@
+<ng-container *ngIf="dataSource.length > 0;else cardNotFound">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef>title </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
   
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> price </th>
       <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> image </th>
+      <th mat-header-cell *matHeaderCellDef>image</th>
       <td mat-cell *matCellDef="let element"> 
-    <img width="100" [src]="element.image" mat-card-image alt="">
-</td>
+    <img [src]="element.image" alt="">
+    </td>
     </ng-container>
-  
-    <!-- Symbol Column -->
     <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Delete item </th>
+      <th mat-header-cell *matHeaderCellDef> delete </th>
       <td mat-cell *matCellDef="let element">
-    <button mat-icon-button color="warn" (click)="deleteItem(element.id)">
-        <mat-icon >delete</mat-icon>
-    </button>
+     <button mat-icon-button (click)="deleteCard(element.id)">
+<mat-icon color="warn">delete</mat-icon>
+     </button>
     </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  </table>  
 
 
+</ng-container>
+<button mat-raised-button disabled>
+{{totalPriceVariable | currency}}
+</button>
 
-  <button mat-flat-button disabled>total price:{{totalPrice() | currency}}</button>
-  
-  
+<ng-template #cardNotFound>
+<p>basket is empty</p>
+</ng-template>
+

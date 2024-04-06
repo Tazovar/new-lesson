@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './views/pages/main/main.component';
-import { CardDetailsComponent } from './views/pages/card-details/card-details.component';
-import { BasketComponent } from './views/pages/basket/basket.component';
-
+import { MainComponent } from './components/main/main.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { BasketComponent } from './components/basket/basket.component';
 const routes: Routes = [
-  {path:'', component:MainComponent},
-  {path:"details/:id", component:CardDetailsComponent},
+  {path:"" , component:MainComponent},
   {path:"basket", component:BasketComponent}
 ];
 

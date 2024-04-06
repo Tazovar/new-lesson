@@ -1,0 +1,21 @@
+<div class="filter_input_container">
+    <app-filter-input (textEmitter)="textEmitterSub($event)"></app-filter-input>
+</div>
+
+<h1 class="title">all product here</h1>
+<div class="cards_container">
+    <div class="center_container">
+         <ng-container *ngIf="data$ | async as products;else loading">
+        <ng-container *ngFor="let element of products | filterPipe:searchText">
+        <app-card [card]="element"></app-card>
+        </ng-container>
+        </ng-container>    
+    </div>
+       
+</div>
+
+
+
+<ng-template #loading>
+<h3 style="text-align: center;">loading...</h3>
+</ng-template>
