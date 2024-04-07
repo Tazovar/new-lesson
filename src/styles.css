@@ -2,6 +2,35 @@
 mat-menu{
     width: 400px !important;
 }
+
+.ng-invalid.ng-dirty:not(form):not([ngModelGroup]){
+    border: 1px solid red;
+    outline: 1px solid red;
+}
+
+.ng-valid.ng-dirty:not(form):not([ngModelGroup]){
+    border: 1px solid green;
+    outline: 1px solid green;
+}
+
+.error_notification{
+    font-size: 11px;
+    font-family: bold;
+    font-family: sans-serif;
+    color: red;
+    margin: 1px 0px;
+    animation-duration: 0.3s;
+    animation-name: errortext;
+}
+
+@keyframes errortext {
+    from{
+        transform: translateY(-4px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css"

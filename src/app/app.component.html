@@ -1,2 +1,46 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<form (ngSubmit)="submit(myForm)" #myForm="ngForm">
+    <div class="username_container">
+            <input type="text" appRequired  required  appTakenUsername [appBannedWord]="['tazo','mariami','diego','nikolozi']" minlength="2" #usrname="ngModel" placeholder="please enter username" name="username" id="username" ngModel>
+            <div class="error_notification" *ngIf="usrname.dirty && usrname.hasError('appBannedWord')">
+              this word is banned {{usrname.getError('appBannedWord').findBannedWords}}
+            </div>
+            <div class="error_notification" *ngIf="usrname.dirty && usrname.hasError('required')">
+                username is required
+            </div>
+            <div class="error_notification" *ngIf="usrname.dirty && usrname.hasError('appTakenUsername')">
+                username already exists {{usrname.getError('appTakenUsername').control}}
+            </div>
+            <div class="error_notification" *ngIf="usrname.dirty && usrname.hasError('minlength')">
+            your value is <strong>{{usrname.getError('minlength').actualLength}}</strong> but username minlength is <strong> {{usrname.getError('minlength').requiredLength}}</strong>
+            </div>
+    </div>
+    <div class="Passwords_container" ngModelGroup="Password" #PasswordGroup="ngModelGroup" appPasswordMatch>
+        <div class="password_container">
+            <input type="password"  required minlength="8" appPattern #password="ngModel" placeholder="password" name="password" ngModel>
+            <div class="error_notification" *ngIf="password.dirty && password.hasError('required')">
+                 password is required
+            </div>
+            
+            <div class="error_notification" *ngIf="password.dirty && password.hasError('appPattern')">
+<strong>{{password.getError('appPattern').text}}</strong>
+            </div>
+
+            <div class="error_notification" *ngIf="password.dirty && password.hasError('minlength')">
+            your value is <strong>{{password.getError('minlength').actualLength}}</strong> but password minlength is <strong> {{password.getError('minlength').requiredLength}}</strong>
+            </div>
+        </div>
+        <div class="confirm_password_container">
+            <input type="password" required #confirmPassword="ngModel"  minlength="8" placeholder="confirm password" name="confirmPassword" ngModel>
+            <div class="error_notification" *ngIf="confirmPassword.dirty && confirmPassword.hasError('required')">
+                confirm password is required
+            </div>
+            <div class="error_notification" *ngIf="confirmPassword.dirty && confirmPassword.hasError('minlength')">
+            your value is <strong>{{confirmPassword.getError('minlength').actualLength}}</strong> but confirmPassword minlength is <strong> {{confirmPassword.getError('minlength').requiredLength}}</strong>
+            </div>
+            <div class="error_notification" *ngIf="confirmPassword.dirty && PasswordGroup.hasError('appPasswordMatch')">
+           password and confirm password do not match
+            </div>
+        </div>
+    </div>
+    <button type="submit" [disabled]="myForm.invalid">submit</button>
+</form>
